@@ -1,136 +1,133 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { ExternalLink, Github, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
-interface Project {
+interface Article {
   id: number
   title: string
   shortDescription: string
   description: string
   image: string
   tags: string[]
-  features: string[]
-  demoLink: string
-  githubLink: string
+  facts: string[]
   fullDescription: string
 }
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [expandedProject, setExpandedProject] = useState<number | null>(null)
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
+  const [expandedArticle, setExpandedArticle] = useState<number | null>(null)
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   }
 
-  const projects: Project[] = [
+  const articles: Article[] = [
     {
       id: 1,
-      title: "E-Commerce платформа",
-      shortDescription: "Полнофункциональная платформа интернет-магазина.",
-      description:
-        "Полнофункциональная e-commerce платформа с управлением товарами, корзиной и обработкой платежей.",
+      title: "Harley-Davidson: история бунтаря",
+      shortDescription: "Как два друга создали легенду американского мотоцикла.",
+      description: "История основания, культовые модели и факты о самом узнаваемом мотобренде мира.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["C++", "Qt", "SQLite", "CMake"],
-      features: [
-        "Система управления складом",
-        "Отслеживание остатков в реальном времени",
-        "Безопасная обработка платежей",
-        "Панель управления заказами",
-        "Аналитика клиентов",
+      tags: ["Мотоциклы", "История", "США"],
+      facts: [
+        "Основан в 1903 году в гараже в Милуоки",
+        "Первый мотоцикл имел двигатель объёмом 116 куб. см",
+        "Во время Второй мировой войны поставил армии 90 000 мотоциклов",
+        "Культовая модель Fat Boy появилась в 1990 году",
+        "Звук двигателя V-Twin запатентован как торговая марка",
       ],
-      demoLink: "#",
-      githubLink: "#",
       fullDescription:
-        "E-commerce платформа предоставляет бизнесу полное решение для онлайн-продаж. Построена на C++ и Qt для высокой производительности и кроссплатформенности. Включает адаптивный дизайн, каталог товаров с фильтрацией и поиском, функционал корзины, безопасную оплату, авторизацию и админ-панель для управления товарами, заказами и клиентами.",
+        "Harley-Davidson — это не просто мотоцикл, это целая философия свободы. В 1903 году два друга, Уильям Харлей и Артур Дэвидсон, построили первый мотоцикл в маленьком деревянном сарае. Сегодня это один из самых узнаваемых брендов в мире. Характерный звук двигателя V-Twin настолько уникален, что компания пыталась его запатентовать. Мотоциклы Harley стали символом американской свободы и бунтарского духа, любимым транспортом байкеров по всему миру.",
     },
     {
       id: 2,
-      title: "Система управления задачами",
-      shortDescription: "Совместная работа над задачами с обновлениями в реальном времени.",
-      description: "Приложение для совместной работы над задачами с обновлениями в реальном времени.",
+      title: "Ferrari: прыть итальянского жеребца",
+      shortDescription: "От гоночных трасс к дорогам — история самого страстного бренда.",
+      description: "Как Энцо Феррари создал марку, ставшую синонимом скорости и роскоши.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
-      features: [
-        "Совместная работа в реальном времени",
-        "Зависимости между задачами",
-        "Распределение ресурсов",
-        "Отслеживание прогресса",
-        "Управление командой",
+      tags: ["Автомобили", "Суперкары", "Италия"],
+      facts: [
+        "Энцо Феррари основал компанию в 1939 году",
+        "Первый автомобиль Ferrari — 125 S — был выпущен в 1947 году",
+        "Логотип с чёрным конём — дань уважения лётчику Франческо Барацке",
+        "Ferrari выиграла 16 чемпионатов мира Формулы 1",
+        "Производство ограничено: не более 14 000 автомобилей в год",
       ],
-      demoLink: "#",
-      githubLink: "#",
       fullDescription:
-        "Система управления задачами помогает командам эффективно организовывать и отслеживать работу. Построена на Java Spring Boot (backend) и React (frontend). Включает создание и назначение задач, дедлайны и напоминания, отслеживание прогресса, вложения файлов, комментарии и обсуждения, командные пространства и обновления в реальном времени.",
+        "Ferrari — это страсть, скорость и итальянское совершенство в металле. Энцо Феррари сначала гонял сам, потом строил машины для гонщиков, и лишь потом — для обычных (очень богатых) людей. Знаменитый символ — вставший на дыбы чёрный конь на жёлтом фоне — Энцо позаимствовал с фюзеляжа самолёта погибшего лётчика. Ferrari намеренно ограничивает производство, чтобы сохранить эксклюзивность: спрос всегда должен превышать предложение.",
     },
     {
       id: 3,
-      title: "Монитор системных ресурсов",
-      shortDescription: "Комплексный инструмент мониторинга с аналитикой в реальном времени.",
-      description: "Комплексный инструмент мониторинга системы с аналитикой производительности.",
+      title: "Ducati vs Honda: война двух философий",
+      shortDescription: "Итальянская страсть против японской надёжности.",
+      description: "Сравнение двух мотоциклетных гигантов: подход к инженерии, гонки и культура.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["C++", "Python", "Qt", "Linux"],
-      features: [
-        "Мониторинг CPU/памяти",
-        "Управление процессами",
-        "Сетевая аналитика",
-        "Отслеживание дискового пространства",
-        "Оповещения о производительности",
+      tags: ["Мотоциклы", "Сравнение", "MotoGP"],
+      facts: [
+        "Ducati использует L-образный двигатель Desmodromic",
+        "Honda — крупнейший производитель двигателей в мире",
+        "Ducati Panigale V4 развивает 214 л.с. в дорожной версии",
+        "Honda CBR1000RR-R выдаёт 217 л.с. в версии SP",
+        "Ducati выиграла 17 чемпионатов в MotoGP",
       ],
-      demoLink: "#",
-      githubLink: "#",
       fullDescription:
-        "Монитор системных ресурсов предоставляет данные о производительности в реальном времени. Построен на C++ с Python для анализа данных. Отслеживает использование CPU, потребление памяти, сетевой трафик и дисковые операции, предоставляя детальную аналитику и оповещения для системных администраторов.",
+        "Ducati и Honda — два разных взгляда на то, каким должен быть идеальный мотоцикл. Итальянцы из Ducati делают ставку на эмоции: звук, вибрацию, характер. Их L-образный двигатель Desmodromic — произведение инженерного искусства, где клапаны управляются принудительно. Honda — это точность, надёжность и технологии. Японцы первыми применили многие решения, ставшие стандартом индустрии. В MotoGP эти две марки годами спорят за первенство, и болельщики делятся на два непримиримых лагеря.",
     },
     {
       id: 4,
-      title: "Проект компилятора",
-      shortDescription: "Компилятор собственного языка с оптимизациями.",
-      description: "Компилятор собственного языка программирования с продвинутыми оптимизациями.",
+      title: "Porsche 911: вечный спортсмен",
+      shortDescription: "60 лет эволюции без революции — секрет культового спорткара.",
+      description: "Как Porsche 911 оставался актуальным на протяжении шести десятилетий.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["C", "LLVM", "Assembly", "Python"],
-      features: ["Лексический анализ", "Синтаксический разбор", "Оптимизация кода", "Обработка ошибок", "Генерация ассемблера"],
-      demoLink: "#",
-      githubLink: "#",
+      tags: ["Автомобили", "Спорткары", "Германия"],
+      facts: [
+        "Первый 911 представлен в 1963 году на Франкфуртском автосалоне",
+        "Двигатель сзади — уникальная компоновка среди спорткаров",
+        "Porsche 911 GT2 RS разгоняется до 100 км/ч за 2,7 секунды",
+        "911-й выиграл 24 часа Ле-Мана более 100 раз",
+        "Более 70% всех Porsche 911, когда-либо выпущенных, до сих пор на ходу",
+      ],
       fullDescription:
-        "Проект компилятора реализует собственный язык программирования с современными возможностями и оптимизациями. Построен на C и LLVM, включает комплексную обработку ошибок и оптимизацию кода. Выполняет лексический анализ, синтаксический разбор, семантический анализ и генерирует оптимизированный ассемблерный код.",
+        "Porsche 911 — живое опровержение поговорки «всё новое — это хорошо забытое старое». Эта машина остаётся принципиально неизменной уже более 60 лет — и при этом всегда актуальна. Задний мотор создаёт специфическое поведение на дороге, которое одни называют опасным, другие — восхитительным. Каждое поколение 911 быстрее, технологичнее и комфортнее предыдущего, но силуэт легко узнаётся с первого взгляда. Примечательный факт: большинство выпущенных 911-х до сих пор ездят — это лучший показатель качества.",
     },
     {
       id: 5,
-      title: "Распределённая БД",
-      shortDescription: "Распределённая база данных с высокой доступностью.",
-      description: "Распределённая база данных с высокой доступностью и отказоустойчивостью.",
+      title: "Kawasaki Ninja H2: реактивный мотоцикл",
+      shortDescription: "Первый серийный мотоцикл с центробежным нагнетателем.",
+      description: "Как Kawasaki создала самый мощный серийный спортбайк в истории.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["C++", "Rust", "gRPC", "Redis"],
-      features: ["Репликация данных", "Шардирование", "Отказоустойчивость", "Балансировка нагрузки", "Управление транзакциями"],
-      demoLink: "#",
-      githubLink: "#",
+      tags: ["Мотоциклы", "Технологии", "Рекорды"],
+      facts: [
+        "H2R развивает 326 л.с. — рекорд для серийных мотоциклов",
+        "Нагнетатель разработан совместно с авиационным подразделением Kawasaki",
+        "Разгон 0-300 км/ч занимает менее 12 секунд",
+        "Максимальная скорость H2R превышает 400 км/ч",
+        "Рама изготовлена из высокопрочной стали методом точечной сварки роботами",
+      ],
       fullDescription:
-        "Распределённая БД обеспечивает высокую доступность и отказоустойчивость для масштабных приложений. Построена на C++ и Rust для производительности, реализует репликацию данных, шардирование и автоматическое переключение при сбоях. Включает инструменты мониторинга и управления.",
+        "Kawasaki Ninja H2 — это машина, в которой авиационные технологии встретились с мотоциклом. Kawasaki Heavy Industries — огромный конгломерат, который строит самолёты, поезда, корабли и мотоциклы. Для H2 авиационное подразделение разработало центробежный нагнетатель — такие стоят на реактивных двигателях. Результат — 200+ л.с. в дорожной версии и 326 л.с. в трековой H2R. Этот мотоцикл разгоняется быстрее спорткаров и входит в поворот так, что физика начинает вызывать сомнения.",
     },
     {
       id: 6,
-      title: "Фреймворк нейросетей",
-      shortDescription: "Deep learning фреймворк, оптимизированный для производительности.",
-      description: "Deep learning фреймворк с CUDA-ускорением и оптимизациями.",
+      title: "Электрокары: революция или хайп?",
+      shortDescription: "Разбираем, как устроены электромобили и что ждёт ДВС.",
+      description: "Принцип работы электромотора, аккумуляторы и будущее автомобильной отрасли.",
       image: "/placeholder.svg?height=400&width=600",
-      tags: ["C++", "CUDA", "Python", "CMake"],
-      features: [
-        "CUDA-ускорение",
-        "Автоматическое дифференцирование",
-        "Оптимизация моделей",
-        "Пайплайны обучения",
-        "Профилирование производительности",
+      tags: ["Автомобили", "Технологии", "Электро"],
+      facts: [
+        "Tesla Model S Plaid разгоняется 0-100 км/ч за 2,1 секунды",
+        "КПД электромотора — до 95%, ДВС — максимум 40%",
+        "Первый электромобиль создан в 1881 году — раньше бензинового",
+        "Аккумулятор Tesla весит около 500 кг",
+        "Рекорд запаса хода — 1210 км у Mercedes EQS",
       ],
-      demoLink: "#",
-      githubLink: "#",
       fullDescription:
-        "Фреймворк нейросетей обеспечивает высокопроизводительные возможности глубокого обучения. Построен на C++ с CUDA-ускорением, предлагает инструменты для построения и обучения нейронных сетей. Включает автоматическое дифференцирование, оптимизацию моделей и детальное профилирование производительности.",
+        "Электромобили кажутся новинкой, но первый электрический экипаж появился в 1881 году — на 4 года раньше первого бензинового автомобиля Бенца. Электромотор превосходит ДВС по КПД почти в три раза и выдаёт максимальный крутящий момент с нуля оборотов — отсюда феноменальные разгоны Tesla. Главная проблема — аккумуляторы: они тяжёлые, дорогие и медленно заряжаются. Но технологии не стоят на месте: твердотельные батареи обещают изменить всё уже в ближайшие годы.",
     },
   ]
 
@@ -146,16 +143,16 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <Badge variant="outline" className="mb-4">
-            Портфолио
+            Статьи
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Избранные проекты</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Статьи и факты</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {articles.map((article, index) => (
             <motion.div
-              key={project.id}
+              key={article.id}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -164,150 +161,116 @@ export default function Projects() {
             >
               <Card
                 className={`group h-full cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                  expandedProject === project.id ? "ring-2 ring-primary" : ""
+                  expandedArticle === article.id ? "ring-2 ring-primary" : ""
                 }`}
-                onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                onClick={() => setExpandedArticle(expandedArticle === article.id ? null : article.id)}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
                     <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
+                      src={article.image || "/placeholder.svg"}
+                      alt={article.title}
                       className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-background/20 p-6 flex flex-col justify-end">
-                      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-muted-foreground text-sm">{project.shortDescription}</p>
+                      <h3 className="text-xl font-bold mb-2">{article.title}</h3>
+                      <p className="text-muted-foreground text-sm">{article.shortDescription}</p>
                     </div>
                   </div>
 
                   <AnimatePresence>
-                    {expandedProject === project.id && (
+                    {expandedArticle === article.id && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="p-6 border-t"
+                        className="p-6 border-t border-border"
                       >
-                        <div className="space-y-4">
-                          <div className="flex flex-wrap gap-2">
-                            {project.tags.map((tag, i) => (
-                              <Badge key={i} variant="secondary">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-
-                          <div className="space-y-2">
-                            <h4 className="font-semibold">Ключевые возможности:</h4>
-                            <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                              {project.features.map((feature, i) => (
-                                <li key={i}>{feature}</li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className="flex gap-4 pt-2">
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                window.open(project.githubLink, "_blank")
-                              }}
-                            >
-                              <Github className="h-4 w-4 mr-2" />
-                              Код
-                            </Button>
-                            <Button
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                window.open(project.demoLink, "_blank")
-                              }}
-                            >
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              Демо
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={(e) => {
-                                e.stopPropagation()
-                                setSelectedProject(project)
-                              }}
-                            >
-                              Подробнее
-                            </Button>
-                          </div>
+                        <p className="text-muted-foreground text-sm mb-4">{article.description}</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {article.tags.map((tag, i) => (
+                            <Badge key={i} variant="secondary">
+                              {tag}
+                            </Badge>
+                          ))}
                         </div>
+                        <div className="space-y-2 mb-4">
+                          <p className="text-sm font-semibold">Интересные факты:</p>
+                          {article.facts.map((fact, i) => (
+                            <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <Icon name="Zap" className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                              <span>{fact}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <button
+                          className="text-primary text-sm font-medium hover:underline flex items-center gap-1"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setSelectedArticle(article)
+                          }}
+                        >
+                          Читать полностью
+                          <Icon name="ArrowRight" className="h-4 w-4" />
+                        </button>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
-                  <div className="p-4 text-center">
-                    <ChevronDown
-                      className={`w-6 h-6 mx-auto transition-transform duration-300 ${
-                        expandedProject === project.id ? "rotate-180" : ""
-                      }`}
-                    />
-                  </div>
+                  {expandedArticle !== article.id && (
+                    <div className="p-4 flex items-center justify-between border-t border-border">
+                      <div className="flex gap-2">
+                        {article.tags.slice(0, 2).map((tag, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-      </div>
 
-      {selectedProject && (
-        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="max-w-3xl">
-            <DialogHeader>
-              <DialogTitle>{selectedProject.title}</DialogTitle>
-              <DialogDescription>
-                <div className="flex flex-wrap gap-2 mt-2 mb-4">
-                  {selectedProject.tags.map((tag, i) => (
+        <Dialog open={!!selectedArticle} onOpenChange={() => setSelectedArticle(null)}>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+            {selectedArticle && (
+              <>
+                <DialogHeader>
+                  <DialogTitle>{selectedArticle.title}</DialogTitle>
+                  <DialogDescription>{selectedArticle.description}</DialogDescription>
+                </DialogHeader>
+                <img
+                  src={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  className="w-full aspect-video object-cover rounded-md"
+                />
+                <div className="flex flex-wrap gap-2">
+                  {selectedArticle.tags.map((tag, i) => (
                     <Badge key={i} variant="secondary">
                       {tag}
                     </Badge>
                   ))}
                 </div>
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4">
-              <img
-                src={selectedProject.image || "/placeholder.svg"}
-                alt={selectedProject.title}
-                className="w-full rounded-md object-cover aspect-video"
-              />
-              <p className="text-muted-foreground">{selectedProject.fullDescription}</p>
-              <div className="space-y-4">
-                <h4 className="font-semibold">Ключевые возможности:</h4>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                  {selectedProject.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
+                <p className="text-muted-foreground">{selectedArticle.fullDescription}</p>
+                <div className="space-y-2">
+                  <p className="font-semibold">Интересные факты:</p>
+                  {selectedArticle.facts.map((fact, i) => (
+                    <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Icon name="Zap" className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                      <span>{fact}</span>
+                    </div>
                   ))}
-                </ul>
-              </div>
-              <div className="flex justify-end gap-4 mt-4">
-                <Button variant="outline" asChild>
-                  <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4 mr-2" />
-                    Смотреть код
-                  </a>
-                </Button>
-                <Button asChild>
-                  <a href={selectedProject.demoLink} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Демо
-                  </a>
-                </Button>
-              </div>
-            </div>
+                </div>
+              </>
+            )}
           </DialogContent>
         </Dialog>
-      )}
+      </div>
     </section>
   )
 }

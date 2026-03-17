@@ -2,85 +2,84 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Code2, Layout, Server, Database, Wrench, Binary } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 export default function TechStack() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
-  const technologies = {
-    languages: {
-      icon: <Code2 className="h-6 w-6" />,
-      title: "Языки программирования",
-      description: "Основные языки для системной и прикладной разработки",
+  const categories = {
+    engines: {
+      icon: <Icon name="Gauge" className="h-6 w-6" />,
+      title: "Двигатели",
+      description: "Типы и принципы работы моторов",
       skills: [
-        { name: "C++", level: 90 },
-        { name: "C", level: 85 },
-        { name: "Java", level: 88 },
-        { name: "Ruby", level: 82 },
-        { name: "Python", level: 85 },
-        { name: "TypeScript", level: 90 },
-        { name: "JavaScript", level: 90 },
+        { name: "Атмосферный ДВС", level: 95 },
+        { name: "Турбированный", level: 90 },
+        { name: "Роторный (Ванкель)", level: 75 },
+        { name: "Электромотор", level: 85 },
+        { name: "Гибридная установка", level: 80 },
       ],
     },
-    concepts: {
-      icon: <Binary className="h-6 w-6" />,
-      title: "Инженерные концепции",
-      description: "Фундаментальные принципы разработки ПО",
+    moto: {
+      icon: <Icon name="Bike" className="h-6 w-6" />,
+      title: "Мотоциклы",
+      description: "Культовые марки и модели",
       skills: [
-        { name: "Структуры данных", level: 95 },
-        { name: "Алгоритмы", level: 90 },
-        { name: "ООП", level: 95 },
-        { name: "Паттерны", level: 85 },
-        { name: "System Design", level: 80 },
-        { name: "Многопоточность", level: 85 },
+        { name: "Harley-Davidson", level: 95 },
+        { name: "Ducati", level: 90 },
+        { name: "Honda CBR", level: 88 },
+        { name: "Kawasaki Ninja", level: 85 },
+        { name: "BMW GS", level: 82 },
+        { name: "Yamaha R1", level: 88 },
       ],
     },
-    frontend: {
-      icon: <Layout className="h-6 w-6" />,
-      title: "Frontend-разработка",
-      description: "Современные веб-технологии",
+    cars: {
+      icon: <Icon name="Car" className="h-6 w-6" />,
+      title: "Автомобили",
+      description: "Легендарные марки и суперкары",
       skills: [
-        { name: "React", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "HTML/CSS", level: 95 },
-        { name: "Tailwind CSS", level: 95 },
-        { name: "Redux", level: 85 },
-        { name: "WebGL", level: 75 },
+        { name: "Ferrari", level: 95 },
+        { name: "Lamborghini", level: 90 },
+        { name: "Porsche", level: 92 },
+        { name: "BMW M Series", level: 88 },
+        { name: "Mercedes AMG", level: 85 },
+        { name: "Ford Mustang", level: 87 },
       ],
     },
-    backend: {
-      icon: <Server className="h-6 w-6" />,
-      title: "Backend-разработка",
-      description: "Серверные фреймворки и технологии",
+    transmission: {
+      icon: <Icon name="Settings2" className="h-6 w-6" />,
+      title: "Трансмиссии",
+      description: "Коробки передач и приводы",
       skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express", level: 80 },
-        { name: "Spring Boot", level: 85 },
-        { name: "Ruby on Rails", level: 80 },
+        { name: "Механика (MT)", level: 95 },
+        { name: "Автомат (AT)", level: 90 },
+        { name: "Робот (AMT/DSG)", level: 85 },
+        { name: "Вариатор (CVT)", level: 80 },
+        { name: "Полный привод (AWD)", level: 88 },
       ],
     },
-    database: {
-      icon: <Database className="h-6 w-6" />,
-      title: "Базы данных",
-      description: "Управление и оптимизация БД",
+    suspension: {
+      icon: <Icon name="Layers" className="h-6 w-6" />,
+      title: "Подвески",
+      description: "Системы подрессоривания и управления",
       skills: [
-        { name: "MongoDB", level: 85 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MySQL", level: 75 },
-        { name: "Redis", level: 70 },
+        { name: "МакФерсон", level: 92 },
+        { name: "Многорычажная", level: 90 },
+        { name: "Пружинная вилка (мото)", level: 88 },
+        { name: "Перевёрнутая вилка", level: 85 },
+        { name: "Моноамортизатор", level: 83 },
       ],
     },
-    tools: {
-      icon: <Wrench className="h-6 w-6" />,
-      title: "Инструменты",
-      description: "Средства и окружения для разработки",
+    records: {
+      icon: <Icon name="Trophy" className="h-6 w-6" />,
+      title: "Рекорды скорости",
+      description: "Самые быстрые машины и мото в мире",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 80 },
-        { name: "AWS", level: 75 },
-        { name: "Linux/Unix", level: 85 },
-        { name: "CMake", level: 80 },
-        { name: "Visual Studio", level: 85 },
+        { name: "Bugatti Chiron SS (490 км/ч)", level: 100 },
+        { name: "Koenigsegg Jesko (487 км/ч)", level: 98 },
+        { name: "Kawasaki H2R (400 км/ч)", level: 95 },
+        { name: "Dodge Tomahawk (мото)", level: 90 },
+        { name: "SSC Tuatara (532 км/ч)", level: 99 },
       ],
     },
   }
@@ -107,14 +106,14 @@ export default function TechStack() {
           className="text-center mb-16"
         >
           <Badge variant="outline" className="mb-4">
-            Навыки
+            Темы
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Технический стек</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Что я изучаю</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(technologies).map(([key, category]) => (
+          {Object.entries(categories).map(([key, category]) => (
             <motion.div
               key={key}
               initial="hidden"
@@ -200,8 +199,7 @@ export default function TechStack() {
           className="mt-12 text-center text-muted-foreground"
         >
           <p className="max-w-2xl mx-auto">
-            Благодаря опыту в низкоуровневом системном программировании и современной веб-разработке,
-            я применяю глубокое понимание принципов инженерии ПО в каждом проекте.
+            Нажмите на любую карточку, чтобы узнать подробнее о каждой теме — что я изучил и что мне особенно интересно.
           </p>
         </motion.div>
       </div>

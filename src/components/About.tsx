@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code, Lightbulb, Rocket } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 export default function About() {
   const fadeIn = {
@@ -23,7 +23,7 @@ export default function About() {
           <Badge variant="outline" className="mb-4">
             Обо мне
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Кто я</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Кто я такой</h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </motion.div>
 
@@ -35,20 +35,18 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
             variants={fadeIn}
           >
-            <h3 className="text-2xl font-bold mb-4">Увлеченный разработчик</h3>
+            <h3 className="text-2xl font-bold mb-4">Саня Мотолэндович</h3>
             <p className="text-muted-foreground mb-6">
-              Я разработчик с опытом более 5 лет, создаю чистые, эффективные и удобные приложения.
-              За это время работал над проектами разного масштаба — от сайтов для малого бизнеса
-              до сложных корпоративных систем.
+              Привет! Меня зовут Саня, и я настоящий фанат техники на колёсах. С детства разбираю двигатели,
+              читаю про устройство автомобилей и мотоциклов и нахожу в этом искреннюю радость.
             </p>
             <p className="text-muted-foreground mb-6">
-              Мой путь в разработке начался в университете, где я открыл для себя радость решения
-              сложных задач через код. С тех пор постоянно учусь и развиваю навыки, чтобы идти
-              в ногу с технологиями.
+              Я не профессиональный механик — просто человек, которому интересно, как всё устроено под капотом.
+              Изучаю историю марок, технические особенности, интересные факты о легендарных моделях.
             </p>
             <p className="text-muted-foreground">
-              Когда не пишу код, изучаю новые технологии, участвую в open-source проектах
-              или делюсь знаниями в блоге и сообществах.
+              Решил собрать всё это в одном месте и поделиться с такими же энтузиастами. Здесь вы найдёте
+              статьи и факты о самых интересных авто и мото в мире.
             </p>
           </motion.div>
 
@@ -64,13 +62,13 @@ export default function About() {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
-                      <Code className="h-6 w-6 text-primary" />
+                      <Icon name="Wrench" className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-semibold mb-2">Чистый код</h4>
+                      <h4 className="text-xl font-semibold mb-2">Устройство техники</h4>
                       <p className="text-muted-foreground">
-                        Пишу поддерживаемый, масштабируемый и эффективный код,
-                        следуя лучшим практикам и стандартам индустрии.
+                        Изучаю двигатели, трансмиссии, подвески и другие узлы — разбираюсь, как это всё работает
+                        и почему устроено именно так.
                       </p>
                     </div>
                   </div>
@@ -89,13 +87,13 @@ export default function About() {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
-                      <Lightbulb className="h-6 w-6 text-primary" />
+                      <Icon name="BookOpen" className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-semibold mb-2">Решаю задачи</h4>
+                      <h4 className="text-xl font-semibold mb-2">Интересные факты</h4>
                       <p className="text-muted-foreground">
-                        Люблю разбираться со сложными задачами и находить элегантные решения
-                        через креативный подход.
+                        Собираю редкие и удивительные факты о культовых моделях — то, о чём не написано
+                        в обычных обзорах.
                       </p>
                     </div>
                   </div>
@@ -114,13 +112,13 @@ export default function About() {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-primary/10 p-3 rounded-full">
-                      <Rocket className="h-6 w-6 text-primary" />
+                      <Icon name="Flame" className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-semibold mb-2">Быстро учусь</h4>
+                      <h4 className="text-xl font-semibold mb-2">Страсть к скорости</h4>
                       <p className="text-muted-foreground">
-                        Быстро адаптируюсь к новым технологиям и средам,
-                        постоянно расширяя свой набор навыков.
+                        Меня восхищают машины с характером — от классических мотоциклов Harley-Davidson
+                        до суперкаров Ferrari и Lamborghini.
                       </p>
                     </div>
                   </div>

@@ -46,15 +46,14 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Добро пожаловать в <span className="text-primary">MotoDrive</span>
+              Привет, я <span className="text-primary">Саня Мотолэндович</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-muted-foreground mb-6">
               <span className="text-foreground">{text}</span>
               <span className="animate-blink">|</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-              Всё о легендарных автомобилях и мотоциклах — захватывающие статьи, редкие факты и истории о самых
-              знаковых машинах планеты.
+              Интересуюсь техникой — изучаю строение автомобилей и мотоциклов, собираю интересные факты и решил поделиться всем этим с вами.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -62,8 +61,8 @@ export default function Hero() {
                 Читать статьи
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")}>
-                Написать нам
+              <Button size="lg" variant="outline" onClick={() => scrollToSection("about")}>
+                Обо мне
               </Button>
             </div>
 

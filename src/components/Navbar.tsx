@@ -30,11 +30,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Главная", href: "home" },
-    { name: "О нас", href: "about" },
+    { name: "Обо мне", href: "about" },
     { name: "Темы", href: "tech-stack" },
     { name: "Статьи", href: "projects" },
-    { name: "Отзывы", href: "testimonials" },
-    { name: "Контакты", href: "contact" },
   ]
 
   return (
@@ -61,7 +59,7 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Button>Написать нам</Button>
+            <Button onClick={() => scrollToSection("projects")}>Читать статьи</Button>
           </nav>
 
           {/* Mobile Navigation Toggle */}
@@ -85,7 +83,7 @@ export default function Navbar() {
                   {link.name}
                 </button>
               ))}
-              <Button className="w-full">Написать нам</Button>
+              <Button className="w-full" onClick={() => scrollToSection("projects")}>Читать статьи</Button>
             </nav>
           </div>
         </div>
