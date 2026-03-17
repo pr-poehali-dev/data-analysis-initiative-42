@@ -1,3 +1,7 @@
-# data-analysis-initiative-42
+# Портфолио разработчика CodeForge
 
-Initial repository setup for pr-poehali-dev/data-analysis-initiative-42
+![Preview](preview.png)
+
+Минималистичное портфолио для разработчика программного обеспечения. Включает hero-секцию с эффектом печатания текста, информацию о себе, стек технологий, галерею проектов, отзывы клиентов и контактную форму. Темная тема с плавными анимациями на Framer Motion.
+
+`"tags": ["portfolio", "dark", "developer", "animations", "testimonials", "glass"]`
