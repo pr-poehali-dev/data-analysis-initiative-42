@@ -32,7 +32,7 @@ export default function Projects() {
       title: "Harley-Davidson: история бунтаря",
       shortDescription: "Как два друга создали легенду американского мотоцикла.",
       description: "История основания, культовые модели и факты о самом узнаваемом мотобренде мира.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Harley_davidson_1_bg_060702.jpg/1280px-Harley_davidson_1_bg_060702.jpg",
       tags: ["Мотоциклы", "История", "США"],
       facts: [
         "Основан в 1903 году в гараже в Милуоки",
@@ -49,7 +49,7 @@ export default function Projects() {
       title: "Ferrari: прыть итальянского жеребца",
       shortDescription: "От гоночных трасс к дорогам — история самого страстного бренда.",
       description: "Как Энцо Феррари создал марку, ставшую синонимом скорости и роскоши.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/2016_Ferrari_488_GTB%2C_front_8.21.17.jpg/1280px-2016_Ferrari_488_GTB%2C_front_8.21.17.jpg",
       tags: ["Автомобили", "Суперкары", "Италия"],
       facts: [
         "Энцо Феррари основал компанию в 1939 году",
@@ -66,7 +66,7 @@ export default function Projects() {
       title: "Ducati vs Honda: война двух философий",
       shortDescription: "Итальянская страсть против японской надёжности.",
       description: "Сравнение двух мотоциклетных гигантов: подход к инженерии, гонки и культура.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Ducati_Panigale_V4_-_EICMA_2017_%2838744973grandprix%29.jpg/1280px-Ducati_Panigale_V4_-_EICMA_2017_%2838744973grandprix%29.jpg",
       tags: ["Мотоциклы", "Сравнение", "MotoGP"],
       facts: [
         "Ducati использует L-образный двигатель Desmodromic",
@@ -83,7 +83,7 @@ export default function Projects() {
       title: "Porsche 911: вечный спортсмен",
       shortDescription: "60 лет эволюции без революции — секрет культового спорткара.",
       description: "Как Porsche 911 оставался актуальным на протяжении шести десятилетий.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/2019_Porsche_911_Carrera_4S_%28992%29%2C_front_8.27.19.jpg/1280px-2019_Porsche_911_Carrera_4S_%28992%29%2C_front_8.27.19.jpg",
       tags: ["Автомобили", "Спорткары", "Германия"],
       facts: [
         "Первый 911 представлен в 1963 году на Франкфуртском автосалоне",
@@ -100,7 +100,7 @@ export default function Projects() {
       title: "Kawasaki Ninja H2: реактивный мотоцикл",
       shortDescription: "Первый серийный мотоцикл с центробежным нагнетателем.",
       description: "Как Kawasaki создала самый мощный серийный спортбайк в истории.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kawasaki_Ninja_H2R_at_Intermot_2014.jpg/1280px-Kawasaki_Ninja_H2R_at_Intermot_2014.jpg",
       tags: ["Мотоциклы", "Технологии", "Рекорды"],
       facts: [
         "H2R развивает 326 л.с. — рекорд для серийных мотоциклов",
@@ -117,7 +117,7 @@ export default function Projects() {
       title: "Электрокары: революция или хайп?",
       shortDescription: "Разбираем, как устроены электромобили и что ждёт ДВС.",
       description: "Принцип работы электромотора, аккумуляторы и будущее автомобильной отрасли.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2020_Tesla_Model_S_Long_Range_Plus%2C_front_8.6.20.jpg/1280px-2020_Tesla_Model_S_Long_Range_Plus%2C_front_8.6.20.jpg",
       tags: ["Автомобили", "Технологии", "Электро"],
       facts: [
         "Tesla Model S Plaid разгоняется 0-100 км/ч за 2,1 секунды",
