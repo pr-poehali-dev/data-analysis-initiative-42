@@ -30,9 +30,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Главная", href: "home" },
-    { name: "Обо мне", href: "about" },
-    { name: "Стек", href: "tech-stack" },
-    { name: "Проекты", href: "projects" },
+    { name: "О нас", href: "about" },
+    { name: "Темы", href: "tech-stack" },
+    { name: "Статьи", href: "projects" },
     { name: "Отзывы", href: "testimonials" },
     { name: "Контакты", href: "contact" },
   ]
@@ -47,7 +47,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <button onClick={() => scrollToSection("home")} className="text-2xl font-bold text-primary">
-            Code<span className="text-destructive">Forge</span>
+            Moto<span className="text-destructive">Drive</span>
           </button>
 
           {/* Desktop Navigation */}
@@ -61,7 +61,7 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Button>Резюме</Button>
+            <Button>Написать нам</Button>
           </nav>
 
           {/* Mobile Navigation Toggle */}
@@ -85,7 +85,7 @@ export default function Navbar() {
                   {link.name}
                 </button>
               ))}
-              <Button className="w-full">Резюме</Button>
+              <Button className="w-full">Написать нам</Button>
             </nav>
           </div>
         </div>
